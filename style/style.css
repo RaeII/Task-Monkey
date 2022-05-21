@@ -5,7 +5,28 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+@media (max-width: 600px) {
+    input{
+        padding: 5px 10px !important; 
+        min-width: 300px;
+        margin-bottom: 10px;
+     }
+
+     .txt_area {
+        color: rgb(255, 255, 255);
+        border-radius: 6px;
+        background: #0c0c0c3f;
+        border: solid 1px #f0f0f02f;
+       min-width: 290px !important;
+        width: 300px !important;
+        max-width: 900px;
+        padding: 20px;
+        font-size: 1rem;
+     }
+}
+
 body{
+
     padding: 50px 0;
     min-height: 100vh;
     display: flex;
@@ -59,7 +80,7 @@ form label{
 
  input{
     padding: 5px 20px !important; 
-    min-width: 400px !important;
+    min-width: 400px;
     margin-bottom: 10px;
  }
 
