@@ -18,7 +18,7 @@ $(function () {
             '<p>Valor a ser cobrado: '+ remuneracao.toFixed(2)+'</p>'
             $('.inputHr').addClass('valorExcedido')
     } else {
-      $('.inputHr').RemoveClass('valorExcedido')
+      $('.inputHr').removeClass('valorExcedido')
       msg = '<p>Total de '+trabalho+' horas trabalhado</p>'+
              '<p>Valor a ser cobrado: '+ remuneracao.toFixed(2)+'</p>'+
              '<p>Sobrando '+hrRestante+' '+hr+' de trabalho</p>'
