@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Task Monkey</title>
+</head>
+<body>
+    <form action="#"  enctype="" id="form" class="form">
+           <input id="contador" type="hidden" value="4">
+            <label class="" for="txtCampo2">Horas contratadas</label>
+            <div class="">
+                <input autocomplete="none" data-grupoid="ok" type="text" id="tempo" required name="item[tempo]" class="txt_area" value="" required>
+            </div>
+        </div>
+        <div>
+            <label class="" for="txtCampo2">Valor por hora:</label>
+            <div class="">
+                <input autocomplete="none" data-grupoid="ok" type="text" id="valor" required name="item[valor]" class="txt_area " value="" required>
+            </div>
+        </div>
+         <div class="campo-horas" style="position: relative;">
+             <button id="addCampo" style="position: absolute;width: 238px;padding: 0;right: 0;top: -2px;">+ Adicionar campo de hora</button>
+        <div>     
+            <label class="" for="txtCampo2">Hora 1:</label>
+            <div class="">
+                <input autocomplete="none"  data-grupoid="ok" type="text" required name="item[horas1]" class="txt_area inputHr" value="" required>
+            </div>
+        </div>
+       
+        <div>
+            <label class="" for="txtCampo2">Hora 2:</label>
+            <div class="">
+                <input autocomplete="none"  data-grupoid="ok" type="text" required name="item[horas2]" class="txt_area inputHr" value="" required>
+            </div>
+        </div>
+       
+        <div>
+            <label class="" for="txtCampo2">Hora 3:</label>
+            <div class="">
+                <input autocomplete="none"  data-grupoid="ok" type="text" required name="item[horas3]" class="txt_area inputHr" value="" required>
+            </div>
+        </div>
+       </div>
+        <div></div>
+        <button type="submit" class="btn-finalizar" id="">Enviar</button>
+        </div>
+    </form>
+
+    <div class="modal fade" id="modal-notify" tabindex="-1" role="dialog" aria-labelledby="edit-form-Inscricao-Pedid"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Total de horas</h5>
+            </div>
+            <div class="modal-body">
+                <div id="msg-alert"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="script/script.js"></script>
+
+</body>
+</html>
+
