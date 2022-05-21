@@ -9,13 +9,16 @@ $(function () {
      $('.inputHr').each(function(index){
         trabalho += parseFloat($(this).val())
      })
-
+     var remuneracao = parseInt(trabalho) * parseInt(valor)
     var hrRestante = parseFloat(tempo) - parseFloat(trabalho)
     var hr = hrRestante > 1 ? 'horas' : 'hora'
     if (parseInt(trabalho) > parseInt(tempo)) {
-      msg = 'Suas horas de trabalho de '+ tempo +' horas foram excedidas com'
+      var exe = parseFloat(trabalho) - parseFloat(tempo)
+      msg = '<p>Suas horas de trabalho de '+ tempo +' horas foram excedidas com '+exe+' a mais</p>'+
+            '<p>Valor a ser cobrado: '+ remuneracao.toFixed(2)+'</p>'
+            $('.inputHr').addClass('valorExcedido')
     } else {
-      var remuneracao = parseInt(trabalho) * parseInt(valor)
+      $('.inputHr').addRemove('valorExcedido')
       msg = '<p>Total de '+trabalho+' horas trabalhado</p>'+
              '<p>Valor a ser cobrado: '+ remuneracao.toFixed(2)+'</p>'+
              '<p>Sobrando '+hrRestante+' '+hr+' de trabalho</p>'
