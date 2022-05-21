@@ -18,15 +18,14 @@ $(function () {
             '<p>Valor a ser cobrado: '+ remuneracao.toFixed(2)+'</p>'
             $('.inputHr').addClass('valorExcedido')
     } else {
-      $('.inputHr').addRemove('valorExcedido')
+      $('.inputHr').RemoveClass('valorExcedido')
       msg = '<p>Total de '+trabalho+' horas trabalhado</p>'+
              '<p>Valor a ser cobrado: '+ remuneracao.toFixed(2)+'</p>'+
              '<p>Sobrando '+hrRestante+' '+hr+' de trabalho</p>'
-      
+             $("#form").trigger("reset");
     }
     $('#msg-alert').html(msg)
     $('#modal-notify').modal('show')
-    $("#form").trigger("reset");
    });  
 });   
 
