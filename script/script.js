@@ -2,32 +2,52 @@ $(function () {
   $(".btn-finalizar").click(function (e) {
     e.preventDefault();
     var tempo = $('#tempo').val()
-    var valor = $('#valor').val()
+    var valor = $('#valor').val().replace(',', '.')
     var msg = ''
-    var trabalho = 0
-     
+    var trabalho = ''
+    var minutosTrabalho = 0
+    var minutosTrabalhados = 0
+    var valorMin = 0
+    
+    tempo = tempo.split(':')
+    minutosTrabalho += +tempo[1] 
+    minutosTrabalho += (+tempo[0]*60)
+  
      $('.inputHr').each(function(index){
-        trabalho += parseFloat($(this).val())
+        trabalho = $(this).val()
+        if(trabalho != '' ){
+           trabalho = trabalho.split(':')
+           minutosTrabalhados += parseFloat(trabalho[1]) 
+           minutosTrabalhados += parseFloat(trabalho[0])*60
+        }
      })
-     var remuneracao = parseInt(trabalho) * parseInt(valor)
-    var hrRestante = parseFloat(tempo) - parseFloat(trabalho)
-    var hr = hrRestante > 1 ? 'horas' : 'hora'
-    if (parseInt(trabalho) > parseInt(tempo)) {
-      var exe = parseFloat(trabalho) - parseFloat(tempo)
-      msg = '<p>Suas horas de trabalho de '+ tempo +' horas foram excedidas com '+exe+' a mais</p>'+
-            '<p>Valor a ser cobrado: '+ remuneracao.toFixed(2)+'</p>'
-            $('.inputHr').addClass('valorExcedido')
+
+    valorMin = parseFloat(valor)/60
+    var remuneracao = parseFloat(minutosTrabalhados) * parseFloat(valorMin)
+    var hrRestante = parseFloat(minutosTrabalhados) - parseFloat(minutosTrabalho)
+ 
+    if(parseFloat(minutosTrabalhados) > parseFloat(minutosTrabalho)){
+      var exe = parseFloat(minutosTrabalhados) - parseFloat(minutosTrabalho)
+      msg = '<p>Suas horas de trabalho de '+ hora(minutosTrabalho) +' horas foram excedidas com '+hora(exe)+' horas a mais</p>'+
+            '<p>Valor a ser cobrado: R$'+ remuneracao.toFixed(2).replace('.', ',')+'</p>'
+            $('.inputHr').each(function(index){
+              trabalho = $(this).val()
+              if(trabalho != '' ){
+                $(this).addClass('valorExcedido')
+              }
+           })
+            
     } else {
       $('.inputHr').removeClass('valorExcedido')
-      msg = '<p>Total de '+trabalho+' horas trabalhado</p>'+
-             '<p>Valor a ser cobrado: '+ remuneracao.toFixed(2)+'</p>'+
-             '<p>Sobrando '+hrRestante+' '+hr+' de trabalho</p>'
+      msg = '<p>Total de '+ hora(minutosTrabalhados) +' horas trabalhado</p>'+
+             '<p>Valor a ser cobrado: R$'+ remuneracao.toFixed(2).replace('.', ',')+'</p>'+
+             '<p>Sobrando '+ hora(hrRestante) +' horas de trabalho</p>'
              $("#form").trigger("reset");
     }
     $('#msg-alert').html(msg)
     $('#modal-notify').modal('show')
    });  
-});   
+   
 
 $('#addCampo').click(function(e){
   e.preventDefault();
@@ -41,3 +61,13 @@ $('#addCampo').click(function(e){
    i++                         
    $('#contador').val(i)
                         })
+});
+     
+    function hora(minutos){
+      var horas = Math.floor(minutos/ 60);          
+      var min = minutos % 60;
+      var textoHoras = (`00${horas}`).slice(-2);
+      var textoMinutos = (`00${min}`).slice(-2);      
+      return `${textoHoras }:${textoMinutos}`;
+    };
+
