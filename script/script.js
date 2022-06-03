@@ -24,7 +24,7 @@ $(function () {
 
     valorMin = parseFloat(valor)/60
     var remuneracao = parseFloat(minutosTrabalhados) * parseFloat(valorMin)
-    var hrRestante = parseFloat(minutosTrabalhados) - parseFloat(minutosTrabalho)
+    var hrRestante = parseFloat(minutosTrabalho) - parseFloat(minutosTrabalhados)  
  
     if(parseFloat(minutosTrabalhados) > parseFloat(minutosTrabalho)){
       var exe = parseFloat(minutosTrabalhados) - parseFloat(minutosTrabalho)
